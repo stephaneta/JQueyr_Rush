@@ -1,15 +1,15 @@
-$(document).ready(function(){
+function add(){
     window.addEventListener("keydown", add, false);
 
     function add(e)  {
       var i = Math.floor(Math.random() * 16);
-      console.log("before 2");
+      // console.log("before 2");
       while (($("td").eq(i)).text() != "") // && is_space() == true)
       {
-        console.log("while 2");
+        // console.log("while 2");
         i = Math.floor(Math.random() * 16);
       }
-      console.log("after 2");
+      // console.log("after 2");
       $("td").eq(i).text(2);
 
 
@@ -58,4 +58,4 @@ $(document).ready(function(){
       //
       // }
     }
-  });
+  }

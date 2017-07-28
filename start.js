@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function start(){
     var i = Math.floor(Math.random() * 16);
     var j = Math.floor(Math.random() * 16);
     $("td").eq(i).append(2);
@@ -6,4 +6,4 @@ $(document).ready(function(){
       var j = Math.floor(Math.random() * 16);
     }
     $("td").eq(j).append(2);
-});
+};

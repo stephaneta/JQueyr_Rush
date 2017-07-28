@@ -1,19 +1,20 @@
-$(document).ready(function(){
+function move(){
     window.addEventListener("keydown", move, false);
 
     // $("body").on("keyPress", function(event) {
     function move(e){
-      // console.log(e);
+      // console.log(e);*
+      var res = parseInt($("#score").text());
       var a = e.keyCode;
       switch (a) {
         case 38:
         $("td").each(function(i){
-          console.log("before 1");
-          console.log(i);
+          // console.log("before 1");
+          // console.log(i);
             while (i > 3)
             {
             if (($("td").eq(i - 4)).text() == "") {
-                console.log("while 1");
+                // console.log("while 1");
                 up = i - 4;
                 $("td").eq(up).append(($("td").eq(i)).text());
                 $("td").eq(i).empty();
@@ -22,15 +23,18 @@ $(document).ready(function(){
               }
 
             if (($("td").eq(i - 4)).text() != "" && ($("td").eq(i - 4)).text() == ($("td").eq(i)).text()) { //
-                console.log("1");
+                // console.log("1");
                 var a = parseInt(($("td").eq(i)).text());
                 var b = parseInt(($("td").eq(i - 4)).text());
-                console.log("a : " + a + "---" + "b : " + b);
+                // console.log("a : " + a + "---" + "b : " + b);
                 if (a == b) {
-                  console.log("1bis");
+                  // console.log("1bis");
                   var n = (a + b).toString();
                   $("td").eq(i - 4).text(n);
                   $("td").eq(i).text("");
+                  n = parseInt(n);
+                  $("#score").text(res + n);
+                  // console.log("-----------------------" + res + n)
                   i = i - 4;
                 }
               }
@@ -45,7 +49,7 @@ $(document).ready(function(){
               }
               // i = i - 4;
             }
-            console.log("after 1");
+            // console.log("after 1");
             // var x = Math.floor(Math.random() * 16);
         });
           break;
@@ -56,11 +60,11 @@ $(document).ready(function(){
           while (j >= 0)
           {
             i = j;
-            console.log("before 3");
+            // console.log("before 3");
             while (i < 12)
             {
               if (($("td").eq(i + 4)).text() == "") {
-                console.log("while 3");
+                // console.log("while 3");
                 down = i + 4;
                 $("td").eq(down).append(($("td").eq(i)).text());
                 $("td").eq(i).empty();
@@ -73,13 +77,16 @@ $(document).ready(function(){
                 var a = parseInt(($("td").eq(i)).text());
                 var b = parseInt(($("td").eq(i + 4)).text());
                 // var b = ($("td").eq(i)).text();
-                console.log("lol" + a);
-                console.log(b);
+                // console.log("lol" + a);
+                // console.log(b);
                 if (a == b) {
-                  console.log("2bis");
+                  // console.log("2bis");
                   var n = (a + b).toString();
                   $("td").eq(i + 4).text(n);
                   $("td").eq(i).text("");
+                  n = parseInt(n);
+                  $("#score").text(res + n);
+                  // console.log("-----------------------" + res + n)
                   i = i + 4;
                 }
               }
@@ -94,7 +101,7 @@ $(document).ready(function(){
               }
               // i = i + 4;
             }
-            console.log("after 3");
+            // console.log("after 3");
             // var x = Math.floor(Math.random() * 16);
             j--;
           }
@@ -103,11 +110,11 @@ $(document).ready(function(){
           case 37:
           $("td").each(function(i){
 
-            console.log("before 5");
+            // console.log("before 5");
             while (i > 0 && Math.floor(i / 4) == Math.floor((i - 1) / 4))
             {
               if (($("td").eq(i - 1)).text() == "") {
-                console.log("while 5");
+                // console.log("while 5");
                 // console.log(i);
                 left = i - 1;
                 $("td").eq(left).append(($("td").eq(i)).text());
@@ -116,14 +123,17 @@ $(document).ready(function(){
               }
 
               if (($("td").eq(i - 1)).text() != "" && ($("td").eq(i - 1)).text() == ($("td").eq(i)).text()) {
-                console.log("3");
+                // console.log("3");
                 var a = parseInt(($("td").eq(i)).text());
                 var b = parseInt(($("td").eq(i - 1)).text());
                 if (a == b) {
-                  console.log("3bis");
+                  // console.log("3bis");
                   var n = (a + b).toString();
                   $("td").eq(i - 1).text(n);
                   $("td").eq(i).text("");
+                  n = parseInt(n);
+                  $("#score").text(res + n);
+                  // console.log("-----------------------" + res + n)
                   i = i - 1;
                 }
               }
@@ -138,7 +148,7 @@ $(document).ready(function(){
               }
               // i = i - 1;
             }
-            console.log("after 5");
+            // console.log("after 5");
             // var x = Math.floor(Math.random() * 16);
             // }
           });
@@ -147,16 +157,16 @@ $(document).ready(function(){
 
           case 39:
           var j = 15;
-          console.log("before 7");
+          // console.log("before 7");
           while (j >= 0)
           {
-            console.log("while 7");
+            // console.log("while 7");
             i = j;
             // console.log("ok");
             while (i >= 0 && Math.floor(i / 4) == Math.floor((i + 1) / 4))
             {
               if (($("td").eq(i + 1)).text() == "") {
-                console.log("while 7bis");
+                // console.log("while 7bis");
                 // console.log(i);
                 right = i + 1;
                 $("td").eq(right).append(($("td").eq(i)).text());
@@ -166,14 +176,17 @@ $(document).ready(function(){
               }
 
               if (($("td").eq(i + 1)).text() != "" && ($("td").eq(i + 1)).text() == ($("td").eq(i)).text()) {
-                console.log("4");
+                // console.log("4");
                 var a = parseInt(($("td").eq(i)).text());
                 var b = parseInt(($("td").eq(i + 1)).text());
                 if (a == b) {
-                  console.log("4bis");
+                  // console.log("4bis");
                   var n = (a + b).toString();
                   $("td").eq(i + 1).text(n);
                   $("td").eq(i).text("");
+                  n = parseInt(n);
+                  $("#score").text(res + n);
+                  // console.log("-----------------------" + res + n)
                   i = i + 1;
                 }
               }
@@ -188,7 +201,7 @@ $(document).ready(function(){
               }
               // i = i + 1;
             }
-            console.log("after 7");
+            // console.log("after 7");
             // var x = Math.floor(Math.random() * 16);
             j--;
           }
@@ -198,4 +211,4 @@ $(document).ready(function(){
 
         }
             }
-    });
+    }
